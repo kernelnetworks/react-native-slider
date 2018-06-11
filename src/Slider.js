@@ -15,6 +15,7 @@ import {
 } from "react-native";
 
 import PropTypes from 'prop-types';
+// import { log } from "util";
 
 var TRACK_SIZE = 4;
 var THUMB_SIZE = 20;
@@ -171,7 +172,7 @@ export default class Slider extends PureComponent {
     /**
     * Set to true if the slider is placed vertically
     */
-    vertical: PropTypes.bool,
+    rotation: PropTypes.string,
   };
 
   static defaultProps = {
@@ -185,7 +186,7 @@ export default class Slider extends PureComponent {
     thumbTouchSize: { width: 40, height: 40 },
     debugTouchArea: false,
     animationType: 'timing',
-    vertical: false,
+    rotation: "0deg",
   };
 
   state = {
@@ -260,7 +261,6 @@ export default class Slider extends PureComponent {
     };
 
     var touchOverflowStyle = this._getTouchOverflowStyle();
-
     return (
       <View {...other} style={[mainStyles.container, style]} onLayout={this._measureContainer}>
         <View
@@ -394,8 +394,11 @@ export default class Slider extends PureComponent {
 
   _getValue = (gestureState: Object) => {
     var length = this.state.containerSize.width - this.state.thumbSize.width;
-    var distance = this.props.vertical ? gestureState.dy : gestureState.dx;
-    var thumbLeft = this._previousLeft + distance;
+
+    var distance = this.props.rotation === "90deg" || this.props.rotation === "270deg"
+      ? gestureState.dy : gestureState.dx;
+    var thumbLeft = this.props.rotation === "0deg" || this.props.rotation === "90deg"
+      ? this._previousLeft + distance : this._previousLeft - distance;
 
     var ratio = thumbLeft / length;
 
