@@ -170,7 +170,7 @@ export default class Slider extends PureComponent {
     animationConfig: PropTypes.object,
 
     /**
-    * Set to true if the slider is placed vertically
+    * Passing the device rotation angle
     */
     rotation: PropTypes.string,
   };
@@ -393,11 +393,12 @@ export default class Slider extends PureComponent {
   };
 
   _getValue = (gestureState: Object) => {
+    let { rotation } = this.props;
     var length = this.state.containerSize.width - this.state.thumbSize.width;
 
-    var distance = this.props.rotation === "90deg" || this.props.rotation === "270deg"
+    var distance = rotation && (rotation === "90deg" || rotation === "270deg")
       ? gestureState.dy : gestureState.dx;
-    var thumbLeft = this.props.rotation === "0deg" || this.props.rotation === "90deg"
+    var thumbLeft = rotation && (rotation === "0deg" || rotation === "90deg")
       ? this._previousLeft + distance : this._previousLeft - distance;
 
     var ratio = thumbLeft / length;
