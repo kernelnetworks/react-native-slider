@@ -168,11 +168,6 @@ export default class Slider extends PureComponent {
      * Used to configure the animation parameters.  These are the same parameters in the Animated library.
      */
     animationConfig: PropTypes.object,
-
-    /**
-    * Passing the device rotation angle
-    */
-    rotation: PropTypes.string,
   };
 
   static defaultProps = {
@@ -186,7 +181,6 @@ export default class Slider extends PureComponent {
     thumbTouchSize: { width: 40, height: 40 },
     debugTouchArea: false,
     animationType: 'timing',
-    rotation: "0deg",
   };
 
   state = {
