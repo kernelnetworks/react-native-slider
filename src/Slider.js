@@ -300,7 +300,7 @@ export default class Slider extends PureComponent {
       style,
       trackStyle,
       thumbStyle,
-      ...otherProps,
+      ...otherProps
     } = props;
 
     return otherProps;
@@ -372,7 +372,7 @@ export default class Slider extends PureComponent {
         containerSize: this._containerSize,
         trackSize: this._trackSize,
         thumbSize: this._thumbSize,
-        allMeasured: true,
+        allMeasured: true
       })
     }
   };
@@ -498,7 +498,7 @@ export default class Slider extends PureComponent {
       left: thumbLeft,
       top: thumbTouchRect.y,
       width: thumbTouchRect.width,
-      height: thumbTouchRect.height,
+      height: thumbTouchRect.height
     };
 
     return (
@@ -521,17 +521,17 @@ export default class Slider extends PureComponent {
 var defaultStyles = StyleSheet.create({
   container: {
     height: 40,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   track: {
     height: TRACK_SIZE,
-    borderRadius: TRACK_SIZE / 2,
+    borderRadius: TRACK_SIZE / 2
   },
   thumb: {
     position: 'absolute',
     width: THUMB_SIZE,
     height: THUMB_SIZE,
-    borderRadius: THUMB_SIZE / 2,
+    borderRadius: THUMB_SIZE / 2
   },
   touchArea: {
     position: 'absolute',
@@ -539,11 +539,11 @@ var defaultStyles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0,
+    bottom: 0
   },
   debugThumbTouchArea: {
     position: 'absolute',
     backgroundColor: 'green',
-    opacity: 0.5,
+    opacity: 0.5
   }
 });
