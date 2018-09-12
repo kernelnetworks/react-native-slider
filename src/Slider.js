@@ -43,7 +43,7 @@ var DEFAULT_ANIMATION_CONFIGS = {
     duration: 150,
     easing: Easing.inOut(Easing.ease),
     delay: 0
-  },
+  }
   // decay : { // This has a serious bug
   //   velocity     : 1,
   //   deceleration : 0.997
@@ -180,7 +180,7 @@ export default class Slider extends PureComponent {
     thumbTintColor: '#343434',
     thumbTouchSize: { width: 40, height: 40 },
     debugTouchArea: false,
-    animationType: 'timing',
+    animationType: 'timing'
   };
 
   state = {
@@ -188,7 +188,7 @@ export default class Slider extends PureComponent {
     trackSize: { width: 0, height: 0 },
     thumbSize: { width: 0, height: 0 },
     allMeasured: false,
-    value: new Animated.Value(this.props.value),
+    value: new Animated.Value(this.props.value)
   };
 
   componentWillMount() {
@@ -199,7 +199,7 @@ export default class Slider extends PureComponent {
       onPanResponderMove: this._handlePanResponderMove,
       onPanResponderRelease: this._handlePanResponderEnd,
       onPanResponderTerminationRequest: this._handlePanResponderRequestEnd,
-      onPanResponderTerminate: this._handlePanResponderEnd,
+      onPanResponderTerminate: this._handlePanResponderEnd
     });
   };
 
@@ -239,7 +239,7 @@ export default class Slider extends PureComponent {
     var mainStyles = styles || defaultStyles;
     var thumbLeft = value.interpolate({
       inputRange: [minimumValue, maximumValue],
-      outputRange: [0, containerSize.width - thumbSize.width],
+      outputRange: [0, containerSize.width - thumbSize.width]
       //extrapolate: 'clamp',
     });
     var valueVisibleStyle = {};
